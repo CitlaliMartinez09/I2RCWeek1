@@ -4,7 +4,7 @@
 // Open Source Software; you can modify and/or share it under the terms of
 // the WPILib BSD license file in the root directory of this project.
 
-package frc.robot.subsystems;
+package frc.robot.subsystems; //asking for a package, which is a group of classes. the package has things that the code needs
 
 import com.ctre.phoenix.motorcontrol.FeedbackDevice;
 import com.ctre.phoenix.motorcontrol.NeutralMode;
@@ -20,14 +20,14 @@ import frc.robot.Constants;
 
 import com.kauailabs.navx.frc.AHRS;
 
-public class DriveTrain extends SubsystemBase 
+public class DriveTrain extends SubsystemBase //DriveTrain is a subsystem
 {
-  private final WPI_TalonSRX leftDriveTalon;
+  private final WPI_TalonSRX leftDriveTalon; //final is a modifier and is used to keep WPI_TalonSRX the same no matter what
   private final WPI_TalonSRX rightDriveTalon;
 
-  private AHRS navx = new AHRS(SPI.Port.kMXP);
+  private AHRS navx = new AHRS(SPI.Port.kMXP);//Created a new object
 
-  private ShuffleboardTab DTTab = Shuffleboard.getTab("DriveTrain");
+  private ShuffleboardTab DTTab = Shuffleboard.getTab("DriveTrain");//.getTab is a getting method which means it obtains the information from Shuffleboard
   private GenericEntry LeftVoltage = DTTab.add("Left Voltage", 0.0).getEntry();
   private GenericEntry RightVoltage = DTTab.add("Right Voltage", 0.0).getEntry();
 
@@ -77,9 +77,19 @@ public class DriveTrain extends SubsystemBase
 
   @Override
   public void periodic() {
-    SmartDashboard.putNumber("Left Voltage", leftDriveTalon.getMotorOutputPercent());
-    SmartDashboard.putNumber("Right Voltage", rightDriveTalon.getMotorOutputPercent());
+    SmartDashboard.putNumber("Left Voltage", leftDriveTalon.getMotorOutputPercent());//gets the percentage of voltage of the left motor
+    SmartDashboard.putNumber("Right Voltage", rightDriveTalon.getMotorOutputPercent());//gets the percentage of voltage of the right motor
     SmartDashboard.putNumber("Angle", navx.getAngle());
+
+    // We made this during Saturday session
+    SmartDashboard.putNumber("Right Talon Ticks", rightDriveTalon.getSelectedSensorPosition());
+// SmartDashboard is the class, .putNumber is the method and it is the action the class will do.
+//key is something you can't delete, Right Talon Ticks is a String
+//rightDriveTalon is also an object that we created, it has information on the talon's ticks
+//.getSelectedSensorPosition is built in and is an example of a getting method, they obtain information of the object
+//String is just the name of the object 
+
+    SmartDashboard.putNumber("Left Talon Ticks", leftDriveTalon.getSelectedSensorPosition());
 
     LeftVoltage.setDouble(leftDriveTalon.getMotorOutputPercent());
     RightVoltage.setDouble(rightDriveTalon.getMotorOutputPercent());
