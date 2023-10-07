@@ -40,8 +40,8 @@ public class DriveTrain extends SubsystemBase //DriveTrain is a subsystem
     leftDriveTalon.setNeutralMode(NeutralMode.Coast);
     rightDriveTalon.setNeutralMode(NeutralMode.Coast);
 
-    leftDriveTalon.setInverted(true);
-    rightDriveTalon.setInverted(false);
+    leftDriveTalon.setInverted(false);
+    rightDriveTalon.setInverted(true);
 
     leftDriveTalon.setSensorPhase(true);
     rightDriveTalon.setSensorPhase(true);
@@ -85,8 +85,9 @@ public double ticksToMeters() {
     SmartDashboard.putNumber("Left Voltage", leftDriveTalon.getMotorOutputPercent());//gets the percentage of voltage of the left motor
     SmartDashboard.putNumber("Right Voltage", rightDriveTalon.getMotorOutputPercent());//gets the percentage of voltage of the right motor
     SmartDashboard.putNumber("Angle", navx.getAngle());
+    SmartDashboard.putNumber("Meters the robot drove", ticksToMeters());
 
-    SmartDashboard.putNumber("Right Talon Ticks", ticksToMeters());
+
 
 
     // We made this during Saturday session

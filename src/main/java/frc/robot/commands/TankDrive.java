@@ -25,6 +25,7 @@ public class TankDrive extends CommandBase { //CommandBase is the parent of Tank
   @Override 
   public void initialize() { // This means the machine starts with no movement
     dt.tankDrive(0.0, 0.0);
+    dt.resetEncoders();
   }
 
   // Called every time the scheduler runs while the command is scheduled.
@@ -41,6 +42,7 @@ public class TankDrive extends CommandBase { //CommandBase is the parent of Tank
   @Override //When it ends, it is set to 0 so it doesn't move anymore
   public void end(boolean interrupted) {
     dt.tankDrive(0.0, 0.0);
+    dt.resetEncoders();
   }
 
   // Returns true when the command should end.
