@@ -28,6 +28,9 @@ public class RobotContainer {
 
   private final TankDrive tankDrive = new TankDrive(dt, joy1);
 
+  double setpoint = 1.0;
+
+  private final Autodrive autodrive = new Autodrive(dt, setpoint);
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
   public RobotContainer() {
     dt.setDefaultCommand(tankDrive);
@@ -55,6 +58,6 @@ public class RobotContainer {
    */
   public Command getAutonomousCommand() {
     // An example command will be run in autonomous
-    return null;
+    return autodrive;
   }
 }

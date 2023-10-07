@@ -67,6 +67,11 @@ public class DriveTrain extends SubsystemBase //DriveTrain is a subsystem
     return (leftDriveTalon.getSelectedSensorPosition(0) + rightDriveTalon.getSelectedSensorPosition(0)) / 2.0;
   }
  
+public double ticksToMeters() {
+  return (0.1524*Math.PI/4096)*getTicks();
+
+}
+
   public double getAngle(){
     return navx.getAngle(); 
   }
@@ -80,6 +85,9 @@ public class DriveTrain extends SubsystemBase //DriveTrain is a subsystem
     SmartDashboard.putNumber("Left Voltage", leftDriveTalon.getMotorOutputPercent());//gets the percentage of voltage of the left motor
     SmartDashboard.putNumber("Right Voltage", rightDriveTalon.getMotorOutputPercent());//gets the percentage of voltage of the right motor
     SmartDashboard.putNumber("Angle", navx.getAngle());
+
+    SmartDashboard.putNumber("Right Talon Ticks", ticksToMeters());
+
 
     // We made this during Saturday session
     SmartDashboard.putNumber("Right Talon Ticks", rightDriveTalon.getSelectedSensorPosition());
