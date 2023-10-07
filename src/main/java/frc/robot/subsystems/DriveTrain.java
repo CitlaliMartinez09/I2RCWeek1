@@ -68,7 +68,7 @@ public class DriveTrain extends SubsystemBase //DriveTrain is a subsystem
   }
  
 public double ticksToMeters() {
-  return (0.1524*Math.PI/4096)*getTicks();
+  return (0.1524*Math.PI/4096.0)*getTicks();
 
 }
 

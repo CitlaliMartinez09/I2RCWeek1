@@ -28,7 +28,7 @@ public class RobotContainer {
 
   private final TankDrive tankDrive = new TankDrive(dt, joy1);
 
-  double setpoint = 1.0;
+  double setpoint = 5.0;
 
   private final Autodrive autodrive = new Autodrive(dt, setpoint);
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
