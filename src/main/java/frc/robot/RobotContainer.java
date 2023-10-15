@@ -31,6 +31,9 @@ public class RobotContainer {
   double setpoint = 5.0;
 
   private final Autodrive autodrive = new Autodrive(dt, setpoint);
+
+  private final PIDTurn pidTurn = new PIDTurn(dt, 90.0);
+  
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
   public RobotContainer() {
     dt.setDefaultCommand(tankDrive);
@@ -58,6 +61,6 @@ public class RobotContainer {
    */
   public Command getAutonomousCommand() {
     // An example command will be run in autonomous
-    return autodrive;
+    return pidTurn;
   }
 }
