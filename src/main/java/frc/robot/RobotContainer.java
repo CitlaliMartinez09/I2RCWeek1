@@ -63,11 +63,11 @@ public class RobotContainer {
   public Command getAutonomousCommand() {
     return new SequentialCommandGroup(
     new Autodrive(dt, 1),
-    new PIDTurn(dt, 60),
+    new PIDTurn(dt, 300),
     new Autodrive(dt, 1),
-    new PIDTurn(dt, 60),
+    new PIDTurn(dt, 300),
     new Autodrive(dt, 1),
-    new PIDTurn(dt, 60)
+    new PIDTurn(dt, 300)
     );
     // // An example command will be run in autonomous
     // return new SequentialCommandGroup(
