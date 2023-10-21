@@ -61,24 +61,24 @@ public class RobotContainer {
    * @return the command to run in autonomous
    */
   public Command getAutonomousCommand() {
-    return new SequentialCommandGroup(
-    new Autodrive(dt, 1),
-    new PIDTurn(dt, 300),
-    new Autodrive(dt, 1),
-    new PIDTurn(dt, 300),
-    new Autodrive(dt, 1),
-    new PIDTurn(dt, 300)
-    );
-    // // An example command will be run in autonomous
     // return new SequentialCommandGroup(
-    //   new Autodrive(dt, 1.0),
-    //   new PIDTurn(dt, 90.0),
-    //   new Autodrive(dt, 1.0),
-    //   new PIDTurn(dt, 90.0),
-    //   new Autodrive(dt, 1.0),
-    //   new PIDTurn(dt, 90.0),
-    //   new Autodrive(dt, 1.0)
+    // new Autodrive(dt, 1),
+    // new PIDTurn(dt, 30),
+    // new Autodrive(dt, 1),
+    // new PIDTurn(dt, 30),
+    // new Autodrive(dt, 1),
+    // new PIDTurn(dt, 30)
+    // );
+    // An example command will be run in autonomous
+    return new SequentialCommandGroup(
+      new Autodrive(dt, 1.0),
+      new PIDTurn(dt, 90.0),
+      new Autodrive(dt, 1.0),
+      new PIDTurn(dt, 90.0),
+      new Autodrive(dt, 1.0),
+      new PIDTurn(dt, 90.0),
+      new Autodrive(dt, 1.0)
 
-// );
+);
   }
 }

@@ -12,7 +12,7 @@ import frc.robot.subsystems.DriveTrain;
 public class PIDTurn extends CommandBase {
   DriveTrain dt;
   double setpointAngle;
-  PIDController pid = new PIDController(KPConstants.kP, 0, 0);//This is the constructor. Kp, ki, and kd are constants
+  PIDController pid = new PIDController(KPConstants.kP, 0.003, 0.0002);//This is the constructor. Kp, ki, and kd are constants
   int motorSign;
 
   /** Creates a new PIDTurn. */

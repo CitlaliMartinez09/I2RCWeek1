@@ -26,7 +26,7 @@ public final class Constants {
 
     }
     public static final class KPConstants{
-        public static final double kP = 0.00333333333;
+        public static final double kP = 0.00333333333*2;
         public static final double positionTolerance = 5.0;
     }
 

@@ -73,7 +73,7 @@ public double ticksToMeters() {
 }
 
   public double getAngle(){
-    return navx.getAngle(); 
+    return -navx.getAngle(); 
   }
  
   public void resetNavx(){
