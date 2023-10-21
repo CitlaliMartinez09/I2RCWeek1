@@ -6,12 +6,13 @@ package frc.robot.commands;
 
 import edu.wpi.first.math.controller.PIDController;
 import edu.wpi.first.wpilibj2.command.CommandBase;
+import frc.robot.Constants.KPConstants;
 import frc.robot.subsystems.DriveTrain;
 
 public class PIDTurn extends CommandBase {
   DriveTrain dt;
   double setpointAngle;
-  PIDController pid = new PIDController(0.00333333333, 0, 0);//This is the constructor. Kp, ki, and kd are constants
+  PIDController pid = new PIDController(KPConstants.kP, 0, 0);//This is the constructor. Kp, ki, and kd are constants
   int motorSign;
 
   /** Creates a new PIDTurn. */
@@ -20,7 +21,7 @@ public class PIDTurn extends CommandBase {
     this.setpointAngle = setpointAngle;
     // Use addRequirements() here to declare subsystem dependencies.
     addRequirements(dt);
-    pid.setTolerance(5.0);
+    pid.setTolerance(KPConstants.positionTolerance);
 
     if (setpointAngle >= 0){ //If the motor is one, it is a counterclockwise turn
       motorSign = 1;

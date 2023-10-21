@@ -8,6 +8,7 @@ import frc.robot.commands.*;
 import frc.robot.subsystems.*;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj2.command.Command;
+import edu.wpi.first.wpilibj2.command.SequentialCommandGroup;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import edu.wpi.first.wpilibj2.command.button.Trigger;
 
@@ -60,7 +61,24 @@ public class RobotContainer {
    * @return the command to run in autonomous
    */
   public Command getAutonomousCommand() {
-    // An example command will be run in autonomous
-    return pidTurn;
+    return new SequentialCommandGroup(
+    new Autodrive(dt, 1),
+    new PIDTurn(dt, 60),
+    new Autodrive(dt, 1),
+    new PIDTurn(dt, 60),
+    new Autodrive(dt, 1),
+    new PIDTurn(dt, 60)
+    );
+    // // An example command will be run in autonomous
+    // return new SequentialCommandGroup(
+    //   new Autodrive(dt, 1.0),
+    //   new PIDTurn(dt, 90.0),
+    //   new Autodrive(dt, 1.0),
+    //   new PIDTurn(dt, 90.0),
+    //   new Autodrive(dt, 1.0),
+    //   new PIDTurn(dt, 90.0),
+    //   new Autodrive(dt, 1.0)
+
+// );
   }
 }

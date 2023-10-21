@@ -21,5 +21,16 @@ public final class Constants {
     public static final class USBOrder {
         public static final int Zero = 0;
         public static final int One = 1;
+        
+
+
+    }
+    public static final class KPConstants{
+        public static final double kP = 0.00333333333;
+        public static final double positionTolerance = 5.0;
+    }
+
+    public static final class DriveTrainConstants {
+        public static final int timeoutMS = 10;
     }
 }
